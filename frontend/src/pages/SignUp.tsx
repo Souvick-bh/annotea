@@ -16,7 +16,10 @@ export function Signup() {
    
 
     async function handleUserSignUp() {
-        if(!userName || !userEmail || !userId || !userPassword ) alert("Kindly fill the details to Sign-Up");
+        if(!userName || !userEmail || !userId || !userPassword ) {
+            alert("Kindly fill the details to Sign-Up");
+            return ;
+        }
         //const userbody = {name:userName, email:userEmail, userid:userId, password:userPassword};
         try {
             const response = await axios.post(envFrontend.VITE_BACKEND_URL+"/v1/user/signup",{name:userName, email:userEmail, userid:userId, password:userPassword});
@@ -58,8 +61,8 @@ export function Signup() {
                 <input className="outline-0 text-center" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder="********"/>
             </div>
 
-            <div className=" bg-gradient-to-r from-[#08CB00] to-[#008d7f] bg-clip-text text-transparent font-semibold animate-pulse animate-duration-[3s]">
-                <a className="" href="https://annotea.vercel.app/login">Already have a account ? Log In</a>
+            <div className=" bg-linear-to-r from-[#08CB00] to-[#008d7f] bg-clip-text text-transparent font-semibold animate-pulse animate-duration-[3s]">
+                <Link to="/login">Already have a account ? Log In</Link>
             </div>
 
             <button className="px-3 py-2 rounded-xl font-bold hover:cursor-pointer hover:text-[#FFF5F2] bg-[#151515] hover:bg-[#111111] " onClick={handleUserSignUp} >Sign Up</button>
