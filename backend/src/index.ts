@@ -23,9 +23,18 @@ async function connectDB() {
     }
 };
 
-connectDB();
+async function bootstrap() {
+  try {
+    await connectDB(); 
 
-app.use("/v1/user", userRoutes);
-app.use("/v1/memory", memoryRoutes);
+    app.use("/v1/user", userRoutes);
+    app.use("/v1/memory", memoryRoutes);
 
-app.listen(7777, () => console.log("Your server started..."))
+    app.listen(7777, () => console.log("Server started on port 7777"));
+  } catch (error) {
+    console.error("Failed to connect to DB:", error);
+    process.exit(1); 
+  }
+}
+
+bootstrap();
