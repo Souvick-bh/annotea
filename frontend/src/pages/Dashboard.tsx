@@ -1,5 +1,5 @@
 import { Createcontentmodel } from "@/components/ui/CreateContentModel";
-import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaShareAlt } from "react-icons/fa";
 import annotea from "../assets/images/annotea.png"

@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import { Home } from './Home';
 import { Signup } from './pages/SignUp';
 import { Login } from './pages/LogIn';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard';
 import { GetMemory } from './pages/GetMemory';
 
