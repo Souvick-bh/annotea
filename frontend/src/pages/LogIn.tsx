@@ -43,7 +43,7 @@ export function Login() {
                 </div>
 
                 <div className=" bg-gradient-to-r from-[#08CB00] to-[#008d7f] bg-clip-text text-transparent font-semibold animate-pulse animate-duration-[3s]">
-                    <a className="" href="http://localhost:5173/signup">Didn't have a account ? Sign Up</a>
+                    <a className="" href="https://annotea.vercel.app/signup">Didn't have a account ? Sign Up</a>
                 </div>
 
                 <button className="px-3 py-2 rounded-xl font-bold  hover:cursor-pointer hover:text-[#FFF5F2] bg-[#151515] hover:bg-[#111111] " onClick={handleUserLogIn} >Log In</button>

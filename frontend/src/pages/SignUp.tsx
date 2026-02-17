@@ -59,7 +59,7 @@ export function Signup() {
             </div>
 
             <div className=" bg-gradient-to-r from-[#08CB00] to-[#008d7f] bg-clip-text text-transparent font-semibold animate-pulse animate-duration-[3s]">
-                <a className="" href="http://localhost:5173/login">Already have a account ? Log In</a>
+                <a className="" href="https://annotea.vercel.app/login">Already have a account ? Log In</a>
             </div>
 
             <button className="px-3 py-2 rounded-xl font-bold hover:cursor-pointer hover:text-[#FFF5F2] bg-[#151515] hover:bg-[#111111] " onClick={handleUserSignUp} >Sign Up</button>
