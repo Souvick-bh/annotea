@@ -11,7 +11,7 @@ export function Memcard(props: any) {
     const [popUpContent, setPopUpContent] = useState("")
     const [openPopUp, setOpenPopUp] = useState(false);
     const [popUpType, setPopUpType] = useState("info");
-    const [shareLink, setShareLink] = useState("https://annotea.vercel.app/memory/"+props?.ucode);
+    const shareLink = "https://annotea.vercel.app/memory/"+props?.ucode
 
     const ColorVariants = {
         'FF6D1F': 'text-[#FF6D1F]',

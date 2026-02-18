@@ -9,7 +9,6 @@ import { envFrontend } from "@/config";
 import { Memcard } from "@/components/ui/memcard";
 import { Updatecontentmodel } from "@/components/ui/UpdateContentModel";
 import { type Memory } from "@/components/utils/types";
-import { Popup } from "@/components/ui/PopUp";
 
 
 export function Dashboard() {
