@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FaLocationArrow } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import annotea from "./assets/images/annotea.png"
+import annotea from "./assets/images/annotea.png";
 
 export function Home() {
-
+    
     const [loggedIn, setLoggedIn] = useState("Log In");
 
     useEffect(() => {
@@ -34,9 +34,9 @@ export function Home() {
                     </div>
                 </div>
                 <div className='absolute right-16 flex flex-row text-lg hover:cursor-pointer font-bold gap-7 text-[#7c7c7c] '>
-                    <div className='text-2xl px-3 py-2 rounded-full hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111]'>
+                    <a href='https://github.com/Souvick-bh/annotea' className='text-2xl px-3 py-2 rounded-full hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111]'>
                         <FaGithub />
-                    </div>
+                    </a>
                     <div className='px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111]'>
                         <Link to="/login">{loggedIn}</Link>
                     </div>
@@ -48,6 +48,7 @@ export function Home() {
             <div className='relative md:absolute md:top-10 md:right-0 '>
                 
             </div>
+ 
         </div>
     );
 }

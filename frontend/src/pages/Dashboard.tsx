@@ -9,6 +9,7 @@ import { envFrontend } from "@/config";
 import { Memcard } from "@/components/ui/memcard";
 import { Updatecontentmodel } from "@/components/ui/UpdateContentModel";
 import { type Memory } from "@/components/utils/types";
+import { Popup } from "@/components/ui/PopUp";
 
 
 export function Dashboard() {
@@ -16,6 +17,9 @@ export function Dashboard() {
     const [content, setContent] = useState([])
     const [updatePopUp, setUpdatePopUp] = useState(false)
     const [selectedMemory, setSelectedMemory] = useState<Memory | null>(null)
+    // const [popUpContent, setPopUpContent] = useState("")
+    // const [openPopUp, setOpenPopUp] = useState(false);
+    // const [popUpType, setPopUpType] = useState("info")
     
     useEffect(() => {
         axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
@@ -34,14 +38,14 @@ export function Dashboard() {
 
                 <button className="flex flex-row px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111] gap-1" onClick={() => setContentModal(true)}>
                     Add Content 
-                    <div className="text-lg font-bold translate-y-1">
+                    <div className="text-lg font-bold pt-1">
                         <IoMdAddCircleOutline />
                     </div>
                 </button>
 
                 <button className=" flex flex-row px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111] gap-2" >
                     Share Brain
-                    <div className=" font-bold translate-y-1">
+                    <div className=" font-bold pt-1">
                         <FaShareAlt />
                     </div>
                 </button>

@@ -3,6 +3,7 @@ import { envFrontend } from "@/config";
 import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
 import { type Memory } from "../utils/types";
+import { Popup } from "./PopUp";
 
 interface UpdateContentModelProp {
     open: boolean,
@@ -14,6 +15,9 @@ export function Updatecontentmodel({open, onClose, memory}: UpdateContentModelPr
 
     const [contentTitle, setContentTitle] = useState<string>('')
     const [content, setContent] = useState<string>('');
+    const [popUpContent, setPopUpContent] = useState("")
+    const [openPopUp, setOpenPopUp] = useState(false);
+    const [popUpType, setPopUpType] = useState("info")
 
     useEffect(() => {
         if(memory) {
@@ -26,7 +30,10 @@ export function Updatecontentmodel({open, onClose, memory}: UpdateContentModelPr
         try {
             const response = await axios.put(envFrontend.VITE_BACKEND_URL+"/v1/memory/"+memory?.ucode,{title:contentTitle, content:content},{headers: {"Authorization": localStorage.getItem("token")}});
             if(response) {
-                alert("Memory updated successfully.")
+                setPopUpType("info");
+                setPopUpContent("Memory Updated Successfully")
+                setOpenPopUp(true);
+                onClose();
             }
         } catch (error) {
             throw error;
@@ -35,6 +42,7 @@ export function Updatecontentmodel({open, onClose, memory}: UpdateContentModelPr
 
     return (
             <div>
+                <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
                 {open && <div className="w-screen h-screen backdrop-blur-xs fixed top-0 left-0 flex justify-center items-center font-bold">
                         <div className="flex flex-col justify-center items-center">
                             <span className="relative w-fit h-fit bg-[#2a2a2a] opacity-100 rounded-2xl py-4 px-4 flex flex-col gap-5">

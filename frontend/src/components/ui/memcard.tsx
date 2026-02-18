@@ -3,8 +3,15 @@ import axios from "axios";
 import { FaEdit } from "react-icons/fa";
 import { FaShareAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useState } from "react";
+import { Popup } from "./PopUp";
 
 export function Memcard(props: any) {   
+
+    const [popUpContent, setPopUpContent] = useState("")
+    const [openPopUp, setOpenPopUp] = useState(false);
+    const [popUpType, setPopUpType] = useState("info");
+    const [shareLink, setShareLink] = useState("https://annotea.vercel.app/memory/"+props?.ucode);
 
     const ColorVariants = {
         'FF6D1F': 'text-[#FF6D1F]',
@@ -20,21 +27,25 @@ export function Memcard(props: any) {
     async function handleSharing() {
         const response = await axios.patch(envFrontend.VITE_BACKEND_URL+"/v1/memory/"+props.ucode, {},{headers: {"Authorization": localStorage.getItem("token")}});
         if(response) {
-            alert("Link created.")
+            await navigator.clipboard.writeText(shareLink);
+            setPopUpType("info");
+            setPopUpContent("Your Sharable Link Created & Copied "+shareLink);
+            setOpenPopUp(true);
         }
     }
 
     async function handleDelete() {
-        const response = await axios.delete(envFrontend.VITE_BACKEND_URL+"/v1/memory/"+props.ucode,{headers: {"Authorization": localStorage.getItem("token")}});
-        if(response) {
-            alert("Deletion is successful.");
-        }
+        await axios.delete(envFrontend.VITE_BACKEND_URL+"/v1/memory/"+props.ucode,{headers: {"Authorization": localStorage.getItem("token")}});
+        setPopUpType("miscellaneous");
+        setPopUpContent("Your Memory Deleted Successfully")
+        setOpenPopUp(true);
     }
 
 
     return (
         <div className="flex flex-col py-3 px-2 justify-center items-center border-dashed border rounded-4xl bg-transparent text-[#fff5f2] h-fit max-w-60">
             {/* <img src={props.src} alt="" className=" p-2 overflow-hidden rounded-t-4xl" /> */}
+            <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
             <div className="flex gap-3 mb-2" >
                 <div className="text-xs pt-1">
                     {props.ucode}

@@ -3,11 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import annotea from "../assets/images/annotea.png"
+import { Popup } from "@/components/ui/PopUp";
 
 
 export function Signup() {
 
     const navigate = useNavigate();
+    const [popUpContent, setPopUpContent] = useState("")
+    const [openPopUp, setOpenPopUp] = useState(false);
+    const [popUpType, setPopUpType] = useState("info")
 
     const [userName, setUserName] = useState<string>('');
     const [userEmail, setUserEmail] = useState<string>('');
@@ -17,15 +21,21 @@ export function Signup() {
 
     async function handleUserSignUp() {
         if(!userName || !userEmail || !userId || !userPassword ) {
-            alert("Kindly fill the details to Sign-Up");
+            setPopUpType("warning");
+            setPopUpContent("Fill The Sections Properly");
+            setOpenPopUp(true);
             return ;
         }
         //const userbody = {name:userName, email:userEmail, userid:userId, password:userPassword};
         try {
             const response = await axios.post(envFrontend.VITE_BACKEND_URL+"/v1/user/signup",{name:userName, email:userEmail, userid:userId, password:userPassword});
             if (response) {
-                alert("Profile created successfully")
-                navigate("/");
+                setPopUpType("success");
+                setPopUpContent("Your Account Created Successfully");
+                setOpenPopUp(true);
+                setTimeout(() => {
+                    navigate("/");
+                }, 5000)
             }
         } catch (error) {
             throw(error);
@@ -34,6 +44,8 @@ export function Signup() {
 
     return (
         <div className="min-h-screen w-full flex flex-col justify-center items-center rounded-4xl text-[#fff2e7] gap-3">
+
+            <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
             
             <Link to="/">
                 <div className="w-60">
