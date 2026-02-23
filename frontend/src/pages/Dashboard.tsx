@@ -29,7 +29,7 @@ export function Dashboard() {
     
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if(token) {
+        if(!token || token === "null" || token === "undefined" || token.trim() === "") {
             axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
             .then((response) => {setContent(response.data.memory_list)})
         } else {

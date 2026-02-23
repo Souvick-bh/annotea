@@ -11,7 +11,7 @@ export function Home() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        if(token) {
+        if(!token || token === "null" || token === "undefined" || token.trim() === "") {
             setLoggedIn("Sign Out");
         }
     },[]);
@@ -20,7 +20,7 @@ export function Home() {
         if(loggedIn == "Log In") {
             navigate("/login");
         } else {
-            localStorage.setItem("token", "");
+            localStorage.removeItem("token");
             setLoggedIn("Log In");
         }
     }

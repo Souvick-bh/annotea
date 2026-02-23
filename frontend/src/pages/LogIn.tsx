@@ -25,8 +25,8 @@ export function Login() {
         }
         try {
             const response = await axios.post(envFrontend.VITE_BACKEND_URL+"/v1/user/login", {userid: userId, password: userPassword})
-            const jwt = response.data.token;
-            localStorage.setItem("token",jwt);
+            const token = response.data.token;
+            localStorage.setItem("token",token);
             navigate("/");
         } catch (error) {
             throw(error);
