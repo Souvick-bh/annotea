@@ -22,7 +22,7 @@ export function Dashboard() {
     // const [popUpType, setPopUpType] = useState("info")
 
     useEffect(() => {
-        if(!localStorage.getItem("token")) {
+        if(localStorage.getItem("token") == "") {
             navigate("/login");
         }
     }, [])

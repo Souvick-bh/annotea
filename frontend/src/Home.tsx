@@ -10,7 +10,7 @@ export function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(localStorage.getItem("token")) {
+        if(localStorage.getItem("token") != "") {
             setLoggedIn("Sign Out");
         }
     },[]);
