@@ -21,16 +21,19 @@ export function Dashboard() {
     // const [openPopUp, setOpenPopUp] = useState(false);
     // const [popUpType, setPopUpType] = useState("info")
 
-    useEffect(() => {
-        if(localStorage.getItem("token") == "") {
-            navigate("/login");
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(localStorage.getItem("token") == "") {
+    //         navigate("/login");
+    //     }
+    // }, [])
     
     useEffect(() => {
-        axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
-        .then((response) => {setContent(response.data.memory_list)})
-        
+        if(localStorage.getItem("token") != "") {
+            axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
+            .then((response) => {setContent(response.data.memory_list)})
+        } else {
+            navigate("/login");
+        }
     },[content])
     return (
         <div className="flex flex-row">
