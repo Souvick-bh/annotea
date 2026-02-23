@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FaLocationArrow } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -7,6 +7,7 @@ import annotea from "./assets/images/annotea.png";
 export function Home() {
     
     const [loggedIn, setLoggedIn] = useState("Log In");
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem("token")) {
@@ -14,6 +15,14 @@ export function Home() {
         }
     },[]);
 
+    function handleLogInSignOut() {
+        if(loggedIn == "Log In") {
+            navigate("/login");
+        } else {
+            localStorage.setItem("token", "");
+            setLoggedIn("Log In");
+        }
+    }
 
     //  const wrongUsArr = ['imp','she','love'];
     //  const wrongUsContent = "I know,I should have told her about my side.But I always feared she might be different from that very moment.That's the regret I will carry forever."
@@ -38,7 +47,7 @@ export function Home() {
                         <FaGithub />
                     </a>
                     <div className='px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111]'>
-                        <Link to="/login">{loggedIn}</Link>
+                        <button onClick={handleLogInSignOut}>{loggedIn}</button>
                     </div>
                 </div>
             </div>

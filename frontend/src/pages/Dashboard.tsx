@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaShareAlt } from "react-icons/fa";
 import annotea from "../assets/images/annotea.png"
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { envFrontend } from "@/config";
 import { Memcard } from "@/components/ui/memcard";
@@ -16,9 +16,16 @@ export function Dashboard() {
     const [content, setContent] = useState([])
     const [updatePopUp, setUpdatePopUp] = useState(false)
     const [selectedMemory, setSelectedMemory] = useState<Memory | null>(null)
+    const navigate = useNavigate();
     // const [popUpContent, setPopUpContent] = useState("")
     // const [openPopUp, setOpenPopUp] = useState(false);
     // const [popUpType, setPopUpType] = useState("info")
+
+    useEffect(() => {
+        if(!localStorage.getItem("token")) {
+            navigate("/login");
+        }
+    }, [])
     
     useEffect(() => {
         axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
