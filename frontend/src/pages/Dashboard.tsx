@@ -28,13 +28,14 @@ export function Dashboard() {
     // }, [])
     
     useEffect(() => {
-        if(localStorage.getItem("token") != "") {
+        const token = localStorage.getItem("token");
+        if(token) {
             axios.get(envFrontend.VITE_BACKEND_URL+"/v1/memory/getallmemory",{headers: {"Authorization": localStorage.getItem("token")}})
             .then((response) => {setContent(response.data.memory_list)})
         } else {
             navigate("/login");
         }
-    },[content])
+    },[])
     return (
         <div className="flex flex-row">
             <div className="top-0 left-0 h-screen w-60 py-5 px-8 border-r-2 border-[#111111] flex flex-col items-center text-md hover:cursor-pointer font-semibold gap-4 text-[#7c7c7c]">
