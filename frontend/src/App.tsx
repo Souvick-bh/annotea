@@ -4,13 +4,15 @@ import { Login } from './pages/LogIn';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard';
 import { GetMemory } from './pages/GetMemory';
+import { Navbar } from './components/ui/NavBar';
 
-
+// bg-linear-to-bl from-[#000000] to-[#3C3D37]
 function App() {
  
   return (
     <BrowserRouter>
-      <div className='relative bg-linear-to-bl from-[#000000] to-[#3C3D37] min-h-screen flex'>
+      <div className='relative bg-[#F4EFE6] min-h-screen flex flex-col'>
+        <Navbar />
 
         <Routes>
           <Route path='/' element={<Home/>}/>

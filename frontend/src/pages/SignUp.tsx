@@ -1,10 +1,8 @@
 import { envFrontend } from "@/config";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import annotea from "../assets/images/annotea.png"
 import { Popup } from "@/components/ui/PopUp";
-
 
 export function Signup() {
 
@@ -43,41 +41,24 @@ export function Signup() {
     }
 
     return (
-        <div className="min-h-screen w-full flex flex-col justify-center items-center rounded-4xl text-[#fff2e7] gap-3">
-
+        <div className="min-h-screen w-full flex justify-center items-center">
             <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
-            
-            <Link to="/">
-                <div className="w-60">
-                    <img src={annotea} alt="" />
-                </div>
-            </Link>
-            
-            <div className="w-100 py-1 mb-2 bg-[#2d2d2d] rounded-lg">
-                <label className="pl-5 pr-5">name :</label>
-                <input className="outline-0 text-center" value={userName} onChange={(e) => setUserName(e.target.value)} type="text" placeholder="Edward Snowden"/>
-            </div>
-
-            <div className="w-100 py-1 mb-2 bg-[#2d2d2d] rounded-lg">
-                <label className="pl-5 pr-5">email :</label>
-                <input className="outline-0 text-center" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} type="text" placeholder="snowden@gmail.com"/>
-            </div>
-
-            <div className="w-100 py-1 mb-2 bg-[#2d2d2d] rounded-lg">
-                <label className="pl-5 pr-5">username :</label>
-                <input className="outline-0 text-center" value={userId} onChange={(e) => setUserId(e.target.value)} type="text" placeholder="snowden2013"/>
-            </div>
-
-            <div className="w-100 py-1 mb-2 bg-[#2d2d2d] rounded-lg">
-                <label className="pl-5 pr-5">password :</label>
-                <input className="outline-0 text-center" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder="********"/>
-            </div>
-
-            <div className=" bg-linear-to-r from-[#08CB00] to-[#008d7f] bg-clip-text text-transparent font-semibold animate-pulse animate-duration-[3s]">
-                <Link to="/login">Already have a account ? Log In</Link>
-            </div>
-
-            <button className="px-3 py-2 rounded-xl font-bold hover:cursor-pointer hover:text-[#FFF5F2] bg-[#151515] hover:bg-[#111111] " onClick={handleUserSignUp} >Sign Up</button>
+            <div className="h-fit w-fit py-2 px-2 border-3 border-[#030303] rounded-lg">
+               <div className="bg-[#030303] text-[#F4EFE6] font-bold pl-8 text-2xl">SIGNUP</div>
+                <div className="h-fit w-fit py-3 px-8 border-3 border-[#030303] flex flex-col gap-1">
+                    <label className="font-bold mt-1 text-[#030303]">Name</label>
+                    <input className="outline-0 border-2 rounded-sm text-start" value={userName} onChange={(e) => setUserName(e.target.value)} type="text" placeholder=""/>
+                    <label className="font-bold mt-2 text-[#030303]">Email</label>
+                    <input className="outline-0 border-2 rounded-sm text-start" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} type="text" placeholder=""/>
+                    <label className="font-bold mt-2 text-[#030303]">Username</label>
+                    <input className="outline-0 border-2 rounded-sm text-start" value={userId} onChange={(e) => setUserId(e.target.value)} type="text" placeholder=""/>   
+                    <label className="font-bold mt-2 text-[#030303]">Password</label>
+                    <input className="outline-0 border-2 rounded-sm text-start" value={userPassword} onChange={(e) => setUserPassword(e.target.value)} type="password" placeholder=""/>
+                     <div className="flex justify-center items-center">
+                        <button className="w-fit font-bold text-xl hover:cursor-pointer mt-2 py-0.5 px-2 border-2 bg-[#E78FB3] hover:bg-[#e775a4] border-[#030303] rounded-md" onClick={handleUserSignUp} >SIGNUP</button>      
+                    </div>   
+                </div>    
+            </div>    
         </div>
     );
 }

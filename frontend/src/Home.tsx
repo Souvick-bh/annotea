@@ -35,7 +35,7 @@ export function Home() {
         <div className='relative w-full min-h-screen'>
             
 
-            <div className='h-50px w-full flex flex-row py-2 justify-center items-center border-b-2 border-[#111111]'>
+            {/* <div className='h-50px w-full flex flex-row py-2 justify-center items-center border-b-2 border-[#111111]'>
                 <div className='absolute left-16 w-30'>
                     <img src={annotea} alt="" />
                 </div>
@@ -55,11 +55,7 @@ export function Home() {
                 </div>
             </div>
 
-            <span className='h-1 w-full bg-[#ffffff]'></span>
-
-            <div className='relative md:absolute md:top-10 md:right-0 '>
-                
-            </div>
+            <span className='h-1 w-full bg-[#ffffff]'></span> */}
  
         </div>
     );
