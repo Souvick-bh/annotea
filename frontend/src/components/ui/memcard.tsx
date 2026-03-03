@@ -43,17 +43,17 @@ export function Memcard(props: any) {
 
 
     return (
-        <div className="flex flex-col py-3 px-2 justify-center items-center border-dashed border rounded-4xl bg-transparent text-[#fff5f2] h-fit max-w-60">
+        <div className="flex flex-col py-2 px-1 justify-center items-center border-2 border-[#030303] rounded-md bg-[#F4EFE6] text-[#030303] h-fit max-w-60">
             {/* <img src={props.src} alt="" className=" p-2 overflow-hidden rounded-t-4xl" /> */}
             <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
-            <div className="flex gap-3 mb-2" >
-                <div className="text-xs pt-1">
+            <div className="flex gap-2 mb-2" >
+                <div className="text-xs font-bold pt-1">
                     {props.ucode}
                 </div>
                 <div className="flex flex-row gap-2 text-lg">
-                    <div className="hover:animate-pulse hover:cursor-pointer hover:text-[#dfdfdf]" onClick={handleEdit}><FaEdit /></div>
-                    <div className="hover:animate-pulse hover:cursor-pointer hover:text-[#dfdfdf]" onClick={handleSharing}><FaShareAlt /></div>
-                    <div className="hover:animate-pulse hover:cursor-pointer hover:text-[#dfdfdf]" onClick={handleDelete}><MdDelete /></div>
+                    <div className="text-[#030303] hover:animate-pulse hover:cursor-pointer hover:text-[#242424]" onClick={handleEdit}><FaEdit /></div>
+                    <div className="text-[#030303] hover:animate-pulse hover:cursor-pointer hover:text-[#242424]" onClick={handleSharing}><FaShareAlt /></div>
+                    <div className="text-[#030303] hover:animate-pulse hover:cursor-pointer hover:text-[#242424]" onClick={handleDelete}><MdDelete /></div>
                 </div>
             </div>
             <h1 className={`text-xl font-extrabold ${ColorVariants[props.titleColor as keyof typeof ColorVariants]}`}>{props.title}</h1>

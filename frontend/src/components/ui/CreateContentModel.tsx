@@ -43,12 +43,14 @@ export function Createcontentmodel({open, onClose} : CreateContentModelProp) {
             <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
             {open && <div className="w-screen h-screen backdrop-blur-xs fixed top-0 left-0 flex justify-center items-center font-bold">
                     <div className="flex flex-col justify-center items-center">
-                        <span className="relative w-fit h-fit bg-[#2a2a2a] opacity-100 rounded-2xl py-4 px-4 flex flex-col gap-5">
-                            <div className="absolute top-4 right-5 p-1 rounded-full text-2xl hover:bg-[#474747] active:bg-[#676767]" onClick={onClose}><RxCross2 /></div>
-                                <input className="bg-[#111111] w-85 py-1 outline-0 rounded-xl  text-md text-center text-[#ffffff]" value={contentTitle} onChange={(e) => setContentTitle(e.target.value)} type="text" placeholder="Title"/>
-                                <textarea className="bg-[#111111] w-100 h-50 py-1 outline-0 rounded-xl  text-md text-center text-[#ffffff]" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content"/>
-                                {/* <input className="bg-[#111111] w-100 py-1 outline-0 rounded-xl  text-md text-center text-[#ffffff]" value={contentTags} onChange={(e) => setContentTags(...contentTags, e.target.value)} type="text" placeholder="imp , note"/> */}
-                                <button className="px-3 py-2 rounded-xl font-bold  hover:cursor-pointer text-[#7c7c7c] hover:text-[#FFF5F2] bg-[#151515] hover:bg-[#111111] " onClick={handleNoteMaking}>Add</button>
+                        <span className="relative w-fit h-fit bg-[#F4EFE6] border-2 border-[#030303] rounded-lg py-4 px-4 flex flex-col gap-1">
+                            <div className="absolute top-4 right-5 p-1 rounded-full text-2xl font-bold cursor-pointer hover:bg-[#030303] hover:text-[#F4EFE6] active:bg-[#050505]" onClick={onClose}><RxCross2 /></div>
+                            <input className=" w-85 py-1 outline-0 border-2 rounded-sm text-md text-start " value={contentTitle} onChange={(e) => setContentTitle(e.target.value)} type="text" placeholder="Title"/>
+                            <textarea className=" w-100 h-50 py-1 mt-2 outline-0 border-2 rounded-sm text-md text-start " value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content"/>
+                            {/* <input className="bg-[#111111] w-100 py-1 outline-0 rounded-xl  text-md text-center text-[#ffffff]" value={contentTags} onChange={(e) => setContentTags(...contentTags, e.target.value)} type="text" placeholder="imp , note"/> */}
+                            <div className="flex justify-center items-center">
+                                <button className="w-fit font-bold text-xl hover:cursor-pointer mt-2 py-0.5 px-2 border-2 bg-[#F2C94C] hover:bg-[#e3b52b] border-[#030303] rounded-md" onClick={handleNoteMaking}>ADD</button>
+                            </div>
                         </span>
                     </div>
             </div>}

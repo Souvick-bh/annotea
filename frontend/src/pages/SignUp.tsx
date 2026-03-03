@@ -43,7 +43,7 @@ export function Signup() {
     return (
         <div className="min-h-screen w-full flex justify-center items-center">
             <Popup message={popUpContent} messageType={popUpType} isOpen={openPopUp} onClose={() => setOpenPopUp(false)} duration={5000}/>
-            <div className="h-fit w-fit py-2 px-2 border-3 border-[#030303] rounded-lg">
+            <div className="h-fit w-fit py-2 px-2 border-3 border-[#030303] rounded-lg bg-[#F4EFE6]">
                <div className="bg-[#030303] text-[#F4EFE6] font-bold pl-8 text-2xl">SIGNUP</div>
                 <div className="h-fit w-fit py-3 px-8 border-3 border-[#030303] flex flex-col gap-1">
                     <label className="font-bold mt-1 text-[#030303]">Name</label>

@@ -11,7 +11,8 @@ function App() {
  
   return (
     <BrowserRouter>
-      <div className='relative bg-[#F4EFE6] min-h-screen flex flex-col'>
+      <div className='absolute min-h-screen w-full opacity-35 bg-[url("/assets/note.svg")] bg-repeat bg-size-[25px_25px]'></div>
+      <div className='relative min-h-screen flex flex-col border-2 border-[#030303]'>
         <Navbar />
 
         <Routes>

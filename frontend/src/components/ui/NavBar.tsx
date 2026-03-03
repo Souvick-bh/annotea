@@ -24,7 +24,7 @@ export function Navbar() {
     }
 
     return (
-        <div className="flex flex-row gap-4 border-2 border-[#030303] font-bold">
+        <div className="flex flex-row gap-4 border-b-2 border-[#030303] font-bold bg-[#F4EFE6]">
             <Link to="/" className="py-1 px-2 hover:bg-[#030303] hover:text-[#F4EFE6] ">Home</Link>
             <Link to="/dashboard" className="py-1 px-2 hover:bg-[#030303] hover:text-[#F4EFE6] ">Notes</Link>
             <button className="py-1 px-2 hover:bg-[#030303] hover:text-[#F4EFE6] hover:cursor-pointer" onClick={handleLogInSignOut}>{loggedIn}</button>

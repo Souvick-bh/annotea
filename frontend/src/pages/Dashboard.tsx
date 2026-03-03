@@ -2,14 +2,12 @@ import { Createcontentmodel } from "@/components/ui/CreateContentModel";
 import { useEffect, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaShareAlt } from "react-icons/fa";
-import annotea from "../assets/images/annotea.png"
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { envFrontend } from "@/config";
 import { Memcard } from "@/components/ui/memcard";
 import { Updatecontentmodel } from "@/components/ui/UpdateContentModel";
 import { type Memory } from "@/components/utils/types";
-
 
 export function Dashboard() {
     const [contentModal, setContentModal] = useState<boolean>(false)
@@ -25,7 +23,7 @@ export function Dashboard() {
     //     if(localStorage.getItem("token") == "") {
     //         navigate("/login");
     //     }
-    // }, [])
+    // }, []) 
     
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -38,40 +36,29 @@ export function Dashboard() {
     },[])
     return (
         <div className="flex flex-row">
-            <div className="top-0 left-0 h-screen w-60 py-5 px-8 border-r-2 border-[#111111] flex flex-col items-center text-md hover:cursor-pointer font-semibold gap-4 text-[#7c7c7c]">
-
-                <Link to="/">
-                    <div className="w-30">
-                        <img src={annotea} alt="" />
-                    </div>
-                </Link>
-
-                <button className="flex flex-row px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111] gap-1" onClick={() => setContentModal(true)}>
-                    Add Content 
+            <div className="top-0 left-0 h-screen w-60 py-5 px-8 border-r-2 bg-[#F4EFE6] border-[#111111] flex flex-col items-center hover:cursor-pointer font-bold gap-4 text-[#030303]">  
+                <button className="flex flex-row px-3 py-2 rounded-sm hover:cursor-pointer hover:text-[#F4EFE6] hover:bg-[#030303] gap-1" onClick={() => setContentModal(true)}>
+                    NOTES
                     <div className="text-lg font-bold pt-1">
                         <IoMdAddCircleOutline />
                     </div>
                 </button>
-
-                <button className=" flex flex-row px-3 py-2 rounded-xl hover:cursor-pointer hover:text-[#FFF5F2] hover:bg-[#111111] gap-2" >
-                    Share Brain
+                <button className=" flex flex-row px-3 py-2 rounded-sm hover:cursor-pointer hover:text-[#F4EFE6] hover:bg-[#111111] gap-2" >
+                    SHARE
                     <div className=" font-bold pt-1">
                         <FaShareAlt />
                     </div>
                 </button>
             </div>
-
             <Createcontentmodel open={contentModal} onClose={() => setContentModal(false)}  />
             <Updatecontentmodel open={updatePopUp} onClose={() => setUpdatePopUp(false)} memory={selectedMemory}/>
-
-            <div className="py-5 px-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            <div className="w-full py-5 px-15 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 " >
                 {content.map(({ucode,title,content}) => <Memcard key={ucode} ucode={ucode} title={title} content={content} 
                 onEdit={() => {
                     setSelectedMemory({ucode, title, content});
                     setUpdatePopUp(true);
                 }}/>)}
-            </div>
-            
+            </div>           
         </div>
     );
 }
