@@ -28,7 +28,7 @@ export function Memcard(props: any) {
         const response = await axios.patch(envFrontend.VITE_BACKEND_URL+"/v1/memory/"+props.ucode, {},{headers: {"Authorization": localStorage.getItem("token")}});
         if(response) {
             await navigator.clipboard.writeText(shareLink);
-            setPopUpType("info");
+            setPopUpType("share");
             setPopUpContent("Your Sharable Link Created & Copied "+shareLink);
             setOpenPopUp(true);
         }

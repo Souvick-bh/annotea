@@ -24,6 +24,7 @@ export function Popup({message, messageType, isOpen, onClose, duration}: Message
 
     const messageVariant = {
         "info": "text-[#FFEDC7]",
+        "share": "text-[#FFEDC7]",
         "success": "text-[#48A111]",
         "warning": "text-[#EB4C4C]",
         "miscellaneous": "text-[#3A9AFF]"
@@ -39,6 +40,9 @@ export function Popup({message, messageType, isOpen, onClose, duration}: Message
                         <div className=" bg-[#000000] py-2 px-2 min-w-100 text-center rounded-2xl border border-[#3C3D37]">
                             <div className="bg-[#2b2b2a] py-3 px-3 rounded-lg border border-[#000000]">
                                 <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div>
+                                {(messageVariant[messageType as keyof typeof messageVariant]=="share")?
+                                <a href={message} className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</a>:
+                                <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div>}
                             </div>
                          </div>
                     </motion.div>
