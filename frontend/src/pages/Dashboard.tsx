@@ -2,7 +2,7 @@ import { Createcontentmodel } from "@/components/ui/CreateContentModel";
 import { useEffect, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaShareAlt } from "react-icons/fa";
-import { Link,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { envFrontend } from "@/config";
 import { Memcard } from "@/components/ui/memcard";
