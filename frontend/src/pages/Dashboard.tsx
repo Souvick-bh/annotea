@@ -36,7 +36,7 @@ export function Dashboard() {
     },[])
     return (
         <div className="flex flex-row">
-            <div className="top-0 left-0 h-screen w-60 py-5 px-8 border-r-2 bg-[#F4EFE6] border-[#111111] flex flex-col items-center hover:cursor-pointer font-bold gap-4 text-[#030303]">  
+            <div className="top-0 left-0 h-screen w-28 sm:w-40 md:w-60 py-5 px-8 border-r-2 bg-[#F4EFE6] border-[#111111] flex flex-col items-center hover:cursor-pointer font-bold gap-4 text-[#030303]">  
                 <button className="flex flex-row px-3 py-2 rounded-sm hover:cursor-pointer hover:text-[#F4EFE6] hover:bg-[#030303] gap-1" onClick={() => setContentModal(true)}>
                     NOTES
                     <div className="text-lg font-bold pt-1">

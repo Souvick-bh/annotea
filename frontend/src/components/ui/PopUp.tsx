@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-
 // export type MessageType = "info" | "warning" | "success" | "miscellaneous";
 
 interface MessageProps {
@@ -39,10 +37,10 @@ export function Popup({message, messageType, isOpen, onClose, duration}: Message
                     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }} className="fixed top-6 left-1/2 -translate-x-1/2">
                         <div className=" bg-[#000000] py-2 px-2 min-w-100 text-center rounded-2xl border border-[#3C3D37]">
                             <div className="bg-[#2b2b2a] py-3 px-3 rounded-lg border border-[#000000]">
-                                {/* <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div> */}
-                                {(messageVariant[messageType as keyof typeof messageVariant]=="share")?
+                                <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div>
+                                {/* {(messageVariant[messageType as keyof typeof messageVariant]=="share")?
                                 <a href={message.split(" ").pop()} target="_blank" rel="noopener noreferrer"  className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</a>:
-                                <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div>}
+                                <div className={`font-semibold ${messageVariant[messageType as keyof typeof messageVariant]}`}>{message}</div>} */}
                             </div>
                          </div>
                     </motion.div>
