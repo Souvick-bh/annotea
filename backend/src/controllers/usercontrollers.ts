@@ -35,7 +35,7 @@ export const login = async(req: UpdatedReq,res: Response,next: NextFunction) => 
     if(!user) return res.status(401).json({message: "Wrong credentials"});
     try {
         if(await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({userid: user.userid},env.JWT_SECRET,{expiresIn: '2 days'});
+            const token = jwt.sign({userid: user.userid},env.JWT_SECRET,{expiresIn: '7d'});
             console.log(token);
             //res.cookie("token",token);
             res.status(200).json({message: "Successful Log-In.", token: token});
