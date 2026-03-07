@@ -12,7 +12,7 @@ export function Navbar() {
         } else {
             setLoggedIn(true);
         }
-    },[]);
+    },[navigate]);
     
     function handleLogInSignOut() {
         if(!loggedIn) {
